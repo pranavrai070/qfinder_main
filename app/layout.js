@@ -15,16 +15,11 @@ export default function RootLayout({ children }) {
       <Head>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <body className="flex flex-col min-h-screen">
+      <body >
         <Header />
-        <div className="flex-1 lg:flex lg:flex-row-reverse">
-          <main className="lg:flex-1">
+          <main>
             {children}
           </main>
-          <aside className="lg:w-1/4">
-            <SideBar />
-          </aside>
-        </div>
         <Footer />
       </body>
     </html>

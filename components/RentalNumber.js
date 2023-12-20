@@ -10,6 +10,9 @@ const RentalNumbers = () => {
     { id: 3, logo: "Canada", phoneNumber: "+1112223333", carrier: "Vodafone",country:"Canada" },
     { id: 4, logo: "USA", phoneNumber: "+4445556666", carrier: "O2",country:"USA" },
     { id: 5, logo: "Brazil", phoneNumber: "+7778889999", carrier: "Three",country:"Brazil" },
+    { id: 6, logo: "France", phoneNumber: "+87366287999", carrier: "Vodafone",country:"France" },
+    { id: 7, logo: "Hungary", phoneNumber: "+7859889999", carrier: "EE",country:"Hungary" },
+    { id: 8, logo: "Ireland", phoneNumber: "+6538889999", carrier: "O2",country:"Ireland" },
   ];
 
   return (

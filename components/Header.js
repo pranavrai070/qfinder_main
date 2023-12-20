@@ -49,7 +49,7 @@ const Header = () => {
     "Pakistan",
     "Poland",
     "Russia",
-    "South_Africa",
+    "South Africa",
     "Spain",
     "Sweden",
     "Switzerland",
@@ -77,19 +77,28 @@ const Header = () => {
 
   return (
     <header className="bg-white-600 pl-4 flex justify-between items-center shadow-md">
-      <div className="flex items-center">
-        <Image src={duckImg} alt="logo" width={45} height={45} quality={100} />
-        <span className="text-gray-600 font-bold ml-2">qfinder.io</span>
-      </div>
+      <Link href="/" legacyBehavior>
+        <div className="flex items-center hover:cursor-pointer">
+          <Image
+            src={duckImg}
+            alt="logo"
+            width={45}
+            height={45}
+            quality={100}
+            className="hover:text-blue-500"
+          />
+          <span className="text-gray-600 font-bold ml-2 hover:text-blue-500">
+            qfinder.io
+          </span>
+        </div>
+      </Link>
 
       <div className="flex items-center space-x-4">
         <div className="hidden md:flex space-x-12">
-        <Link href="/blog" legacyBehavior>
-          <a className="text-gray-600 font-bold">
-            Blog
-          </a>
+          <Link href="/blog" legacyBehavior>
+            <a className="text-gray-600 font-bold hover:text-blue-500">Blog</a>
           </Link>
-          <a href="#" className="text-gray-600 font-bold">
+          <a href="/temporary-numbers" className="text-gray-600 font-bold hover:text-blue-500">
             Free Temporary Numbers
           </a>
         </div>
@@ -107,18 +116,18 @@ const Header = () => {
                 onChange={handleChange}
                 label="Country"
               >
-                {countries.map((country)=>(
-                <MenuItem value={country}>
-                <div className="w-5 h-5 mb-0 mr-2 overflow-hidden">
-                  <Image
-                    src={`/Flags/${country}.png`}
-                    alt="Logo"
-                    width={20}
-                    height={20}
-                  />
-                </div>
-                <span>{country}</span>
-                </MenuItem>
+                {countries.map((country) => (
+                  <MenuItem value={country}>
+                    <div className="w-5 h-5 mb-0 mr-2 overflow-hidden">
+                      <Image
+                        src={`/Flags/${country}.png`}
+                        alt="Logo"
+                        width={20}
+                        height={20}
+                      />
+                    </div>
+                    <span>{country}</span>
+                  </MenuItem>
                 ))}
               </Select>
             </FormControl>
