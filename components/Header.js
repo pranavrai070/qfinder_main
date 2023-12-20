@@ -26,7 +26,6 @@ import Image from "next/image";
 
 const Header = () => {
   const countries = [
-    "All",
     "Australia",
     "Austria",
     "Belgium",
@@ -109,7 +108,17 @@ const Header = () => {
                 label="Country"
               >
                 {countries.map((country)=>(
-                <MenuItem value={country}>{country}</MenuItem>
+                <MenuItem value={country}>
+                <div className="w-5 h-5 mb-0 mr-2 overflow-hidden">
+                  <Image
+                    src={`/Flags/${country}.png`}
+                    alt="Logo"
+                    width={20}
+                    height={20}
+                  />
+                </div>
+                <span>{country}</span>
+                </MenuItem>
                 ))}
               </Select>
             </FormControl>

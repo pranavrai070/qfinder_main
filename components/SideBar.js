@@ -1,5 +1,10 @@
 import React from "react";
 import Link from "next/link";
+import secretIcon from '../public/svgIcons/userSecret.svg';
+import lockIcon from '../public/svgIcons/lock.svg';
+import smsIcon from '../public/svgIcons/sms.svg';
+import mobileIcon from '../public/svgIcons/mobile.svg';
+import Image from "next/image";
 
 const SideBar = () => {
   const SideBarData = [
@@ -9,12 +14,14 @@ const SideBar = () => {
       content:
         "Protect your privacy by using one of our disposable virtual phone numbers.",
       logo: "Logo1",
+      icon: secretIcon,
     },
     {
       id: 2,
       heading: "100% anonymous & secure",
       content: "No registration or sign-up required.",
       logo: "Logo2",
+      icon: lockIcon,
     },
     {
       id: 3,
@@ -22,12 +29,14 @@ const SideBar = () => {
       content:
         "Use our numbers to safeguard your identity and bypass sms verification for Telegram, Tinder, Twitter & much more!",
       logo: "Logo3",
+      icon: smsIcon,
     },
     {
       id: 4,
       heading: "New phone numbers added every month",
       content: "Numbers are updated every 30 days.",
       logo: "Logo4",
+      icon: mobileIcon,
     },
   ];
 
@@ -51,7 +60,13 @@ const SideBar = () => {
       <div className="p-4">
         {SideBarData.map((item) => (
           <div key={item.id} className="bg-white rounded-md shadow-md p-4 mb-4">
-            <img src={item.logo} alt="Logo" className="w-16 h-16 mb-2" />
+            <Image
+              src={item.icon}
+              alt="Logo"
+              width={50} // Set the width as needed
+              height={50} // Set the height as needed
+              className="w-8 h-8 mb-2"
+            />
             <h3 className="text-xl font-bold mb-2">{item.heading}</h3>
             <p>{item.content}</p>
           </div>
