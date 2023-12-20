@@ -1,0 +1,19 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Media query for small screens (e.g., mobile devices) */
+/* @media screen and (max-width: 768px) {
+    body {
+      display: flex;
+      flex-direction: column;
+    }
+  
+    main {
+      order: 1;
+    }
+  
+    aside {
+      order: 2;
+    }
+  } */
