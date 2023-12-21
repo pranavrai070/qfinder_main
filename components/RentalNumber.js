@@ -2,6 +2,7 @@
 import React from "react";
 import Image from "next/image";
 import { Card, CardContent, Button, Typography, Grid } from "@mui/material";
+import Link from "next/link";
 
 const RentalNumbers = () => {
   const data = [
@@ -42,9 +43,11 @@ const RentalNumbers = () => {
                 <Typography variant="subtitle2" className="text-gray-600 mb-2">
                   Carrier: {item.carrier}
                 </Typography>
+                <Link href={`/temporary-numbers/${item.country}/${item.phoneNumber.replace(/\D/g, '')}`}>
                 <Button variant="contained" className="bg-teal-500 text-white">
                   Select
                 </Button>
+                </Link>
               </CardContent>
             </Card>
           </Grid>

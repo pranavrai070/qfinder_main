@@ -1,7 +1,8 @@
 // Header.js
-"use client";
+"use client"
 import React, { useState } from "react";
 import duckImg from "../assets/duck.png";
+import { useRouter } from 'next/navigation'
 import IndiaImg from "../public/Flags/India.png";
 import Link from "next/link";
 
@@ -25,6 +26,7 @@ import {
 import Image from "next/image";
 
 const Header = () => {
+  const router=useRouter();
   const countries = [
     "Australia",
     "Austria",
@@ -73,6 +75,7 @@ const Header = () => {
       setCountry("");
     }
     setCountry(event.target.value);
+    router.push(`/temporary-numbers/${event.target.value}`);
   };
 
   return (
@@ -95,7 +98,7 @@ const Header = () => {
 
       <div className="flex items-center space-x-4">
         <div className="hidden md:flex space-x-12">
-          <Link href="/blog" legacyBehavior>
+          <Link href="https://qfinder-blog.vercel.app/" legacyBehavior>
             <a className="text-gray-600 font-bold hover:text-blue-500">Blog</a>
           </Link>
           <a href="/temporary-numbers" className="text-gray-600 font-bold hover:text-blue-500">
@@ -117,7 +120,7 @@ const Header = () => {
                 label="Country"
               >
                 {countries.map((country) => (
-                  <MenuItem value={country}>
+                  <MenuItem key={country} value={country}>
                     <div className="w-5 h-5 mb-0 mr-2 overflow-hidden">
                       <Image
                         src={`/Flags/${country}.png`}

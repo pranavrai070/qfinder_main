@@ -1,5 +1,6 @@
 import React from "react";
 import Image from "next/image";
+import Link from "next/link";
 import { Card, CardContent, Button, Typography, Grid } from "@mui/material";
 
 const Page=({params})=>{
@@ -29,11 +30,10 @@ const Page=({params})=>{
     },0);
 
     const filterData=data.filter((item)=>{
-      if(item.country==countryName)
+      if(item.country===countryName)
       return item;
     });
 
-    console.log('consoling filter data in component',filterData);
 
 
    return (
@@ -65,9 +65,11 @@ const Page=({params})=>{
                 <Typography variant="subtitle2" className="text-gray-600 mb-2">
                   Carrier: {item.carrier}
                 </Typography>
+                <Link href={`/temporary-numbers/${countryName}/${item.phoneNumber.replace(/\D/g, '')}`}>
                 <Button variant="contained" className="bg-teal-500 text-white">
                   Select
                 </Button>
+                </Link>
               </CardContent>
             </Card>
           </Grid>

@@ -73,7 +73,7 @@ const SideBar = () => {
         ))}
       </div>
       <div className="bg-white rounded-md shadow-md p-4 mb-0">
-        <Link href="/blogs" legacyBehavior>
+        <Link href="https://qfinder-blog.vercel.app/" legacyBehavior>
           <a className="text-blue-500 text-lg font-semibold mb-4">{">"} Blog</a>
         </Link>
         {BlogData.map((item, index) => (
