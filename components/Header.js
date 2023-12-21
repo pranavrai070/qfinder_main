@@ -1,8 +1,10 @@
 // Header.js
-"use client"
+"use client";
 import React, { useState } from "react";
 import duckImg from "../assets/duck.png";
-import { useRouter } from 'next/navigation'
+import { useRouter } from "next/navigation";
+import MenuIcon from "@mui/icons-material/Menu";
+import CloseIcon from "@mui/icons-material/Close";
 import IndiaImg from "../public/Flags/India.png";
 import Link from "next/link";
 
@@ -21,12 +23,13 @@ import {
   MenuItem,
   CircularProgress,
   Box,
+  Slide,
 } from "@mui/material";
 // import countryLogos from "@/constants/CountryData";
 import Image from "next/image";
 
 const Header = () => {
-  const router=useRouter();
+  const router = useRouter();
   const countries = [
     "Australia",
     "Austria",
@@ -68,6 +71,11 @@ const Header = () => {
   console.log("getting country logo in header", typeof countryLogos);
 
   const [country, setCountry] = useState("");
+  const [menuOpen, setMenuOpen] = useState(false);
+
+  const toggleMenu = () => {
+    setMenuOpen(!menuOpen);
+  };
 
   const handleChange = (event) => {
     console.log("getitng event", event.target.value);
@@ -77,6 +85,7 @@ const Header = () => {
     setCountry(event.target.value);
     router.push(`/temporary-numbers/${event.target.value}`);
   };
+
 
   return (
     <header className="bg-white-600 pl-4 flex justify-between items-center shadow-md">
@@ -90,7 +99,7 @@ const Header = () => {
             quality={100}
             className="hover:text-blue-500"
           />
-          <span className="text-gray-600 font-bold ml-2 hover:text-blue-500">
+          <span className="text-gray-600 font-bold ml-2 hover:text-blue-500 hidden md:flex">
             qfinder.io
           </span>
         </div>
@@ -101,7 +110,10 @@ const Header = () => {
           <Link href="https://qfinder-blog.vercel.app/" legacyBehavior>
             <a className="text-gray-600 font-bold hover:text-blue-500">Blog</a>
           </Link>
-          <a href="/temporary-numbers" className="text-gray-600 font-bold hover:text-blue-500">
+          <a
+            href="/temporary-numbers"
+            className="text-gray-600 font-bold hover:text-blue-500"
+          >
             Free Temporary Numbers
           </a>
         </div>
@@ -135,6 +147,42 @@ const Header = () => {
               </Select>
             </FormControl>
           </Box>
+        </div>
+
+        {/* Hamburger Menu for Mobile */}
+        <div className="md:hidden">
+          <IconButton onClick={toggleMenu}>
+            {menuOpen ? <CloseIcon /> : <MenuIcon />}
+          </IconButton>
+          {menuOpen && (
+            <Slide
+              in={menuOpen}
+              direction="left"
+              mountOnEnter
+              unmountOnExit
+              timeout={500}
+            >
+              <div
+                className="fixed top-0 right-0 h-1/2 w-1/2 bg-white z-50 p-4"
+              >
+                <IconButton onClick={toggleMenu}>
+                  <CloseIcon />
+                </IconButton>
+                {/* Include your navigation links here */}
+                <Link href="https://qfinder-blog.vercel.app/" legacyBehavior>
+                  <a className="text-gray-600 font-bold hover:text-blue-500 block mb-2">
+                    Blog
+                  </a>
+                </Link>
+                <a
+                  href="/temporary-numbers"
+                  className="text-gray-600 font-bold hover:text-blue-500 block"
+                >
+                  Free Temporary Numbers
+                </a>
+              </div>
+            </Slide>
+          )}
         </div>
       </div>
     </header>
